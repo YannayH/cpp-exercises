@@ -1,5 +1,4 @@
-#ifndef CPP_EXERCISES_COMPLEX_H
-#define CPP_EXERCISES_COMPLEX_H
+#pragma once
 
 #include <ostream>
 #include <boost/operators.hpp>
@@ -25,12 +24,10 @@ public:
     Complex& operator*=(T scalar);
 
 
-    T real;
-    T complex;
+    T m_real;
+    T m_complex;
 };
 
 template < class T > std::ostream& operator<< (std::ostream &out, const Complex< T >& complex);
 
 #include "complex.inl"
-
-#endif //CPP_EXERCISES_COMPLEX_H

@@ -7,8 +7,8 @@
 TEST(ConstructorTests, DefaultConstructor) {
     Complex<double> complex;
 
-    EXPECT_EQ(complex.real, 0);
-    EXPECT_EQ(complex.complex, 0);
+    EXPECT_EQ(complex.m_real, 0);
+    EXPECT_EQ(complex.m_complex, 0);
 }
 
 TEST(ConstructorTests, FullConstructor) {
@@ -16,8 +16,8 @@ TEST(ConstructorTests, FullConstructor) {
     double complex_value = 4;
     Complex<double> complex(real_value, complex_value);
 
-    EXPECT_EQ(complex.real, real_value);
-    EXPECT_EQ(complex.complex, complex_value);
+    EXPECT_EQ(complex.m_real, real_value);
+    EXPECT_EQ(complex.m_complex, complex_value);
 }
 
 TEST(ConstructorTests, CopyConstructor) {
@@ -26,8 +26,8 @@ TEST(ConstructorTests, CopyConstructor) {
     Complex<double> complex(real_value, complex_value);
     Complex<double> copied_complex(complex);
 
-    EXPECT_EQ(copied_complex.real, real_value);
-    EXPECT_EQ(copied_complex.complex, complex_value);
+    EXPECT_EQ(copied_complex.m_real, real_value);
+    EXPECT_EQ(copied_complex.m_complex, complex_value);
 }
 
 TEST(OperatorTests, Assignment) {
@@ -37,8 +37,8 @@ TEST(OperatorTests, Assignment) {
     Complex<double> copied_complex;
     copied_complex = complex;
 
-    EXPECT_EQ(copied_complex.real, real_value);
-    EXPECT_EQ(copied_complex.complex, complex_value);
+    EXPECT_EQ(copied_complex.m_real, real_value);
+    EXPECT_EQ(copied_complex.m_complex, complex_value);
 }
 
 TEST(OperatorTests, AddComplexes) {
@@ -46,8 +46,8 @@ TEST(OperatorTests, AddComplexes) {
     Complex<double> complex2(5, 5);
     Complex<double> combined_complex = complex1 + complex2;
 
-    EXPECT_EQ(combined_complex.real, complex1.real + complex2.real);
-    EXPECT_EQ(combined_complex.complex, complex1.complex + complex2.complex);
+    EXPECT_EQ(combined_complex.m_real, complex1.m_real + complex2.m_real);
+    EXPECT_EQ(combined_complex.m_complex, complex1.m_complex + complex2.m_complex);
 }
 
 TEST(OperatorTests, AddReal) {
@@ -55,8 +55,8 @@ TEST(OperatorTests, AddReal) {
     Complex<double> complex(1, 2);
     Complex<double> combined_complex = complex + real_addition;
 
-    EXPECT_EQ(combined_complex.real, complex.real + real_addition);
-    EXPECT_EQ(combined_complex.complex, complex.complex);
+    EXPECT_EQ(combined_complex.m_real, complex.m_real + real_addition);
+    EXPECT_EQ(combined_complex.m_complex, complex.m_complex);
 }
 
 TEST(OperatorTests, iAddComplexes) {
@@ -66,8 +66,8 @@ TEST(OperatorTests, iAddComplexes) {
     Complex<double> complex2(initial_real, inital_complex);
     complex2 += complex1;
 
-    EXPECT_EQ(complex2.real, complex1.real + initial_real);
-    EXPECT_EQ(complex2.complex, complex1.complex + inital_complex);
+    EXPECT_EQ(complex2.m_real, complex1.m_real + initial_real);
+    EXPECT_EQ(complex2.m_complex, complex1.m_complex + inital_complex);
 }
 
 TEST(OperatorTests, iAddReal) {
@@ -77,8 +77,8 @@ TEST(OperatorTests, iAddReal) {
     Complex<double> complex(initial_real, inital_complex);
     complex += real_addition;
 
-    EXPECT_EQ(complex.real, initial_real + real_addition);
-    EXPECT_EQ(complex.complex, inital_complex);
+    EXPECT_EQ(complex.m_real, initial_real + real_addition);
+    EXPECT_EQ(complex.m_complex, inital_complex);
 }
 
 TEST(OperatorTests, SubtractComplexes) {
@@ -86,8 +86,8 @@ TEST(OperatorTests, SubtractComplexes) {
     Complex<double> complex2(5, 5);
     Complex<double> subtracted_complex = complex1 - complex2;
 
-    EXPECT_EQ(subtracted_complex.real, complex1.real - complex2.real);
-    EXPECT_EQ(subtracted_complex.complex, complex1.complex - complex2.complex);
+    EXPECT_EQ(subtracted_complex.m_real, complex1.m_real - complex2.m_real);
+    EXPECT_EQ(subtracted_complex.m_complex, complex1.m_complex - complex2.m_complex);
 }
 
 TEST(OperatorTests, SubtractReal) {
@@ -95,8 +95,8 @@ TEST(OperatorTests, SubtractReal) {
     Complex<double> complex(1, 2);
     Complex<double> subtracted_complex = complex - real_addition;
 
-    EXPECT_EQ(subtracted_complex.real, complex.real - real_addition);
-    EXPECT_EQ(subtracted_complex.complex, complex.complex);
+    EXPECT_EQ(subtracted_complex.m_real, complex.m_real - real_addition);
+    EXPECT_EQ(subtracted_complex.m_complex, complex.m_complex);
 }
 
 TEST(OperatorTests, iSubtractComplexes) {
@@ -106,8 +106,8 @@ TEST(OperatorTests, iSubtractComplexes) {
     Complex<double> complex2(initial_real, inital_complex);
     complex2 -= complex1;
 
-    EXPECT_EQ(complex2.real, initial_real - complex1.real);
-    EXPECT_EQ(complex2.complex, inital_complex - complex1.complex);
+    EXPECT_EQ(complex2.m_real, initial_real - complex1.m_real);
+    EXPECT_EQ(complex2.m_complex, inital_complex - complex1.m_complex);
 }
 
 TEST(OperatorTests, iSubtractReal) {
@@ -117,8 +117,8 @@ TEST(OperatorTests, iSubtractReal) {
     Complex<double> complex(initial_real, inital_complex);
     complex -= real_addition;
 
-    EXPECT_EQ(complex.real, initial_real - real_addition);
-    EXPECT_EQ(complex.complex, inital_complex);
+    EXPECT_EQ(complex.m_real, initial_real - real_addition);
+    EXPECT_EQ(complex.m_complex, inital_complex);
 }
 
 TEST(OperatorTests, MultiplyScalar) {
@@ -126,8 +126,8 @@ TEST(OperatorTests, MultiplyScalar) {
     Complex<double> complex(1, 2);
     Complex<double> multiplied_complex = complex * scalar;
 
-    EXPECT_EQ(multiplied_complex.real, complex.real * scalar);
-    EXPECT_EQ(multiplied_complex.complex, complex.complex * scalar);
+    EXPECT_EQ(multiplied_complex.m_real, complex.m_real * scalar);
+    EXPECT_EQ(multiplied_complex.m_complex, complex.m_complex * scalar);
 }
 
 TEST(OperatorTests, iMultiplyScalar) {
@@ -137,8 +137,8 @@ TEST(OperatorTests, iMultiplyScalar) {
     Complex<double> complex(initial_real, inital_complex);
     complex *= scalar;
 
-    EXPECT_EQ(complex.real, initial_real * scalar);
-    EXPECT_EQ(complex.complex, inital_complex * scalar);
+    EXPECT_EQ(complex.m_real, initial_real * scalar);
+    EXPECT_EQ(complex.m_complex, inital_complex * scalar);
 }
 
 TEST(OperatorTests, OutputToOStream) {
@@ -146,5 +146,5 @@ TEST(OperatorTests, OutputToOStream) {
     std::stringstream output;
     output << complex;
 
-    EXPECT_EQ(output.str(), std::to_string(complex.real) + " + " + std::to_string(complex.complex) + "i");
+    EXPECT_EQ(output.str(), std::to_string(complex.m_real) + " + " + std::to_string(complex.m_complex) + "i");
 }
