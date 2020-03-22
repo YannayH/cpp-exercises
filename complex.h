@@ -31,4 +31,6 @@ public:
 
 template < class T > std::ostream& operator<< (std::ostream &out, const Complex< T >& complex);
 
+#include "complex.inl"
+
 #endif //CPP_EXERCISES_COMPLEX_H

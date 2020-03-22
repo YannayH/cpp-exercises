@@ -2,7 +2,6 @@
 #include <gtest/gtest.h>
 
 #include "complex.h"
-#include "complex.cpp"
 
 
 TEST(ConstructorTests, DefaultConstructor) {
