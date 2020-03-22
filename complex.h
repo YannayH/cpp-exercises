@@ -6,29 +6,29 @@
 class Complex {
 public:
     Complex();
-    Complex(double long real, double long complex);
+    Complex(double real, double complex);
     Complex(const Complex& complex);
 
     Complex& operator=(const Complex& other_complex);
 
-    Complex operator+(const Complex& other_complex);
-    Complex operator+(double long real);
+    Complex operator+(const Complex& other_complex) const;
+    Complex operator+(double real) const;
 
     Complex& operator+=(const Complex& other_complex);
-    Complex& operator+=(double long real);
+    Complex& operator+=(double real);
 
-    Complex operator-(const Complex& other_complex);
-    Complex operator-(double long real);
+    Complex operator-(const Complex& other_complex) const;
+    Complex operator-(double real) const;
 
     Complex& operator-=(const Complex& other_complex);
-    Complex& operator-=(double long real);
+    Complex& operator-=(double real);
 
-    Complex operator*(double long scalar);
-    Complex& operator*=(double long scalar);
+    Complex operator*(double scalar) const;
+    Complex& operator*=(double scalar);
 
 
-    double long real;
-    double long complex;
+    double real;
+    double complex;
 };
 
 std::ostream& operator<< (std::ostream &out, const Complex& complex);
