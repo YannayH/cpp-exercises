@@ -2,34 +2,33 @@
 #define CPP_EXERCISES_COMPLEX_H
 
 #include <ostream>
+#include <boost/operators.hpp>
 
-class Complex {
+template < class T >
+class Complex :
+        boost::addable< Complex< T > >,
+        boost::addable< Complex< T >, T >,
+        boost::subtractable< Complex< T > >,
+        boost::subtractable< Complex< T >, T >,
+        boost::multipliable< Complex< T >, T > {
 public:
     Complex();
-    Complex(double long real, double long complex);
-    Complex(const Complex& complex);
+    Complex(T real, T complex);
+    Complex(const Complex< T >& complex);
 
-    Complex& operator=(const Complex& other_complex);
+    Complex& operator=(const Complex< T >& other_complex);
 
-    Complex operator+(const Complex& other_complex);
-    Complex operator+(double long real);
-
-    Complex& operator+=(const Complex& other_complex);
-    Complex& operator+=(double long real);
-
-    Complex operator-(const Complex& other_complex);
-    Complex operator-(double long real);
-
-    Complex& operator-=(const Complex& other_complex);
-    Complex& operator-=(double long real);
-
-    Complex operator*(double long scalar);
-    Complex& operator*=(double long scalar);
+    Complex& operator+=(const Complex< T >& other_complex);
+    Complex& operator+=(T real);
+    Complex& operator-=(const Complex< T >& other_complex);
+    Complex& operator-=(T real);
+    Complex& operator*=(T scalar);
 
 
-    double long real;
-    double long complex;
+    T real;
+    T complex;
 };
 
-std::ostream& operator<< (std::ostream &out, const Complex& complex);
+template < class T > std::ostream& operator<< (std::ostream &out, const Complex< T >& complex);
+
 #endif //CPP_EXERCISES_COMPLEX_H
